@@ -14,7 +14,7 @@ coinContinue equ 0x295d04
     bl coinSaveScore
 
 .org coinSaveScore
-    stmdb sp!,{r4 r5 r6 r7 lr}
+    stmdb sp!,{r4, r5, r6, r7, lr}
     mov r4,r0
     mov r7,r1
     ldr r5,[0x295d3c]
@@ -24,9 +24,9 @@ coinContinue equ 0x295d04
     b coinCondvar
 
 .org coinGEq
-    ldmia sp!, {r4 r5 r6 r7 lr}
+    ldmia sp!, {r4, r5, r6, r7, lr}
     b 0x23663c
-    ldmia sp!, {r4 r5 r6 r7 lr}
+    ldmia sp!, {r4, r5, r6, r7, lr}
 
 .org coinCondvar
     bl getEndlessScore

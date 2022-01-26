@@ -15,19 +15,19 @@ virusContinue equ 0x1c3f78
     bleq virusSaveScore
 
 .org virusSaveScore
-    stmdb sp!, {r4 r5 r6 r7 lr}
+    stmdb sp!, {r4, r5, r6, r7, lr}
     mov r4, r0
     mov r7, r1
     ldr r5, [0x1c3fa4]
     mvn r3, 0x0
     mov r1, 0x3
-    ldr currScenePtr,[r5,0x0]
+    ldr r0, [r5, 0x0]
     b virusCondvar
 
 .org virusGEq
-    ldmia sp!, {r4 r5 r6 r7 lr}
+    ldmia sp!, {r4, r5, r6, r7, lr}
     b saveGame
-    ldmia sp!, {r4 r5 r6 r7 lr}
+    ldmia sp!, {r4, r5, r6, r7, lr}
 
 .org virusCondvar
     bl getEndlessScore
