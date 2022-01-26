@@ -10,11 +10,11 @@ saveGame equ 0x28bf14
 getEndlessScore equ 0x261a6c
 virusContinue equ 0x1c3f78
 
-.org virusCmd:
+.org virusCmd
     ldreq r1,[r4,#0x20]
     bleq virusSaveScore
 
-.org virusSaveScore:
+.org virusSaveScore
     stmdb sp!, {r4 r5 r6 r7 lr}
     mov r4, r0
     mov r7, r1
@@ -24,12 +24,12 @@ virusContinue equ 0x1c3f78
     ldr currScenePtr,[r5,0x0]
     b virusCondvar
 
-.org virusGEq:
+.org virusGEq
     ldmia sp!, {r4 r5 r6 r7 lr}
     b saveGame
     ldmia sp!, {r4 r5 r6 r7 lr}
 
-.org virusCondvar:
+.org virusCondvar
     bl getEndlessScore
     mov r2, r7
     b virusContinue

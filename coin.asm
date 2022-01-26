@@ -9,11 +9,11 @@ coinCondvar equ 0x53ef54
 getEndlessScore equ 0x261a6c
 coinContinue equ 0x295d04
 
-.org coinCmd:
+.org coinCmd
     ldr r1,[r4,#0x20]
     bl coinSaveScore
 
-.org coinSaveScore:
+.org coinSaveScore
     stmdb sp!,{r4 r5 r6 r7 lr}
     mov r4,r0
     mov r7,r1
@@ -23,12 +23,12 @@ coinContinue equ 0x295d04
     ldr r0,[r5,#0x0]
     b coinCondvar
 
-.org coinGEq:
+.org coinGEq
     ldmia sp!, {r4 r5 r6 r7 lr}
     b 0x23663c
     ldmia sp!, {r4 r5 r6 r7 lr}
 
-.org coinCondvar:
+.org coinCondvar
     bl getEndlessScore
     mov r2, r7
     b coinContinue
