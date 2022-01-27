@@ -1,6 +1,6 @@
 original.bin
 code.bin
-code.ips
+out
 
 armips
 lipx.py
