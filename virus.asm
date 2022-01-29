@@ -27,7 +27,7 @@ virusContinue equ 0x1c3f78
 .org virusGEq
     ldmia sp!, {r4, r5, r6, r9, lr}
     b saveGame
-    ldmia sp!, {r4, r5, r6, r9, lr}
+    ldmia sp!, {r4, r5, r6, r9, pc}
 
 .org virusCondvar
     bl getEndlessScore
