@@ -1,7 +1,7 @@
 .arm.little
 .open "original.bin", "code.bin", 0x100000
 
-coinCmd equ 0x18215c
+coinCmd equ 0x18715c
 coinSaveScore equ 0x295ce4
 coinGEq equ 0x295d30
 coinCondvar equ 0x399ff4
