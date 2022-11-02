@@ -50,7 +50,7 @@ ENDLESS_saveScore:
     ; must fit format 0000XX11
     mvn r1, 0b1100
     and r1, r1, 0xFF
-    and r1, r0, r1
+    and r1, r4, r1
     cmp r1, #3
     bne _001ecca0
     
