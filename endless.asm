@@ -40,10 +40,10 @@ ENDLESS_cmd_BF:
 ENDLESS_saveScore:
     stmdb sp!, {r4, r5, r6, lr}
     mov r6, r0
-    ldr r5, =D_0054d350
+    ldr r5, [_0054d350]
 
     ; check current game
-    ldr r0, =D_0054ef10
+    ldr r0, [_0054ef10]
     ldr r0, [r0]
     ldrb r4, [r0, 0x4c] ; current gate slot?
     
@@ -52,7 +52,7 @@ ENDLESS_saveScore:
     and r1, r1, 0xFF
     and r1, r4, r1
     cmp r1, #3
-    bne _001ecca0
+    bne _return
     
     ; get saved score
     ldr r0, [r5]
@@ -62,7 +62,7 @@ ENDLESS_saveScore:
 
     ; if the saved score is bigger or equal to the current score, don't save
     cmp r0, r6
-    bge _001ecca0
+    bge _return
     
     ; save condvar to score
     ldr r0, [r5]
@@ -72,12 +72,16 @@ ENDLESS_saveScore:
     bl setGateScore
 
     ; save the game
-    ldr r0, =D_0054ef28
+    ldr r0, [_0054ef28]
     ldr r0, [r0]
     ldmia sp!, {r4, r5, r6, lr}
     b saveGame
 
-_001ecca0:
+_return:
     ldmia sp!, {r4, r5, r6, pc}
+_0054d350: .word D_0054d350
+_0054ef10: .word D_0054ef10
+_0054ef28: .word D_0054ef28
+
 
 .close
