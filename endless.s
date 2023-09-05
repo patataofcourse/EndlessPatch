@@ -1,4 +1,4 @@
-; EndlessPatch rev3 - unified version
+; EndlessPatch rev4 - unified version
 ;   shouldn't break vanilla games anymore, so it should be safe enough to add
 ;   incompatible with RHMPatch >= v1.3 for now
 
