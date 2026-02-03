@@ -1,3 +1,5 @@
+###### NOTE: this functionality will be integrated into RHMPatch v1.4!
+
 # EndlessPatch
 Code patches for Rhythm Heaven Megamix (US) to allow saving to endless game scores from the conditional variable (aka condvar).
 
